@@ -44,7 +44,7 @@
 
         // Dark Mode
         const themeToggle = document.getElementById('theme-toggle');
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        const currentTheme = localStorage.getItem('theme') || 'dark';
         const setTheme = (theme) => {
             document.documentElement.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
@@ -76,27 +76,11 @@
                 const elementTop = el.getBoundingClientRect().top;
                 if (elementTop < windowHeight - 80) {
                     el.classList.add('active');
-                    const progressBars = el.querySelectorAll('.skill-progress');
-                    if (progressBars) {
-                        progressBars.forEach(bar => {
-                            bar.style.width = bar.getAttribute('data-width');
-                        });
-                    }
                 }
             });
         };
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll(); // Trigger on load
-        
-        // FAQ Accordion Logic Khusus Halaman About
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                question.classList.toggle('active');
-                const answer = question.nextElementSibling;
-                if(answer) answer.classList.toggle('active');
-            });
-        });
     </script>
 </body>
 </html>

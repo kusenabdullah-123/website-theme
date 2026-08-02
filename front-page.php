@@ -6,10 +6,6 @@ get_header(); ?>
         <section class="hero container">
             <div class="hero-grid">
                 <div class="hero-content reveal">
-                    <div class="hero-badge">
-                        <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i>
-                        <span>Available for freelance</span>
-                    </div>
                     <h1 class="hero-title">Building Scalable <span class="gradient-text">Backend Systems</span></h1>
                     <p class="hero-description">Saya adalah Backend Developer yang berfokus pada arsitektur sistem yang skalabel, integrasi database berkinerja tinggi, dan infrastruktur event-driven yang tangguh.</p>
                     <div class="hero-stats">
@@ -134,48 +130,44 @@ get_header(); ?>
             </div>
             
             <div class="articles-grid">
-                <a href="#" class="article-card reveal">
+                <?php
+                $latest_posts = new WP_Query( array(
+                    'posts_per_page' => 3,
+                    'post_status'    => 'publish'
+                ) );
+                $delay = 0;
+                
+                if ( $latest_posts->have_posts() ) :
+                    while ( $latest_posts->have_posts() ) : $latest_posts->the_post();
+                        $categories = get_the_category();
+                        $category_name = !empty($categories) ? esc_html($categories[0]->name) : 'Uncategorized';
+                        $style = $delay > 0 ? ' style="transition-delay: 0.' . $delay . 's;"' : '';
+                ?>
+                <a href="<?php the_permalink(); ?>" class="article-card reveal"<?php echo $style; ?>>
                     <div class="article-image">
-                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Kode Backend" loading="lazy">
+                        <?php if ( has_post_thumbnail() ) : ?>
+                            <?php the_post_thumbnail('medium_large', array('loading' => 'lazy')); ?>
+                        <?php else : ?>
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Placeholder" loading="lazy">
+                        <?php endif; ?>
                     </div>
                     <div class="article-content">
-                        <div class="article-category">System Architecture</div>
-                        <h3>Membangun Event-Driven Architecture dengan Apache Kafka dan PHP</h3>
-                        <p>Cara menangani sinkronisasi data antar sistem sekolah secara real-time...</p>
+                        <div class="article-category"><?php echo $category_name; ?></div>
+                        <h3><?php the_title(); ?></h3>
+                        <p><?php echo wp_trim_words( get_the_excerpt(), 12, '...' ); ?></p>
                         <div class="article-meta">
-                            <span><i data-lucide="calendar" style="width: 14px; height: 14px;"></i> 15 Mei 2026</span>
-                            <span><i data-lucide="clock" style="width: 14px; height: 14px;"></i> 5 min read</span>
+                            <span style="display: flex; align-items: center; gap: 5px;"><i data-lucide="calendar" style="width: 14px; height: 14px;"></i> <?php echo get_the_date(); ?></span>
                         </div>
                     </div>
                 </a>
-                <a href="#" class="article-card reveal" style="transition-delay: 0.1s;">
-                    <div class="article-image">
-                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Server Data" loading="lazy">
-                    </div>
-                    <div class="article-content">
-                        <div class="article-category">Security</div>
-                        <h3>Mencegah Path Traversal pada Library Upload File Custom</h3>
-                        <p>Praktik terbaik menulis sistem upload file di PHP murni yang aman dari eksploitasi...</p>
-                        <div class="article-meta">
-                            <span><i data-lucide="calendar" style="width: 14px; height: 14px;"></i> 02 Apr 2026</span>
-                            <span><i data-lucide="clock" style="width: 14px; height: 14px;"></i> 8 min read</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="article-card reveal" style="transition-delay: 0.2s;">
-                    <div class="article-image">
-                        <img src="https://images.unsplash.com/photo-1627398225081-24c89544eb1a?auto=format&fit=crop&w=600&q=80" alt="Hardware Laptop" loading="lazy">
-                    </div>
-                    <div class="article-content">
-                        <div class="article-category">AI & Rust</div>
-                        <h3>Eksperimen: Menjalankan AI Lokal Menggunakan Rust di CPU Laptop</h3>
-                        <p>Bisakah kita menjalankan model bahasa secara efisien tanpa GPU dedicated?</p>
-                        <div class="article-meta">
-                            <span><i data-lucide="calendar" style="width: 14px; height: 14px;"></i> 12 Mar 2026</span>
-                            <span><i data-lucide="clock" style="width: 14px; height: 14px;"></i> 6 min read</span>
-                        </div>
-                    </div>
-                </a>
+                <?php
+                        $delay++;
+                    endwhile;
+                    wp_reset_postdata();
+                else :
+                ?>
+                    <p style="grid-column: 1 / -1; text-align: center;">Belum ada artikel.</p>
+                <?php endif; ?>
             </div>
             <div style="text-align: center; margin-top: 40px;">
                 <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="btn btn-outline">View All Articles <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
