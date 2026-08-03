@@ -1,53 +1,46 @@
-// assets/js/main.js
-
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Lucide Icons
-  lucide.createIcons();
+    // Ensure Lucide loads correctly
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
 
-  // Dark Mode Toggle
-  const themeToggle = document.getElementById('theme-toggle');
-  const currentTheme = localStorage.getItem('theme') || 'light';
-  
-  document.documentElement.setAttribute('data-theme', currentTheme);
-  
-  themeToggle.addEventListener('click', () => {
-    let theme = document.documentElement.getAttribute('data-theme');
-    let targetTheme = theme === 'light' ? 'dark' : 'light';
-    
-    document.documentElement.setAttribute('data-theme', targetTheme);
-    localStorage.setItem('theme', targetTheme);
-  });
-
-  // Mobile Menu Toggle
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.querySelector('.nav-links');
-  
-  if (hamburger) {
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-  }
-
-  // Scroll Reveal Animation
-  const revealElements = document.querySelectorAll('.reveal');
-  
-  const revealOnScroll = () => {
-    let windowHeight = window.innerHeight;
-    revealElements.forEach(el => {
-      let elementTop = el.getBoundingClientRect().top;
-      let elementVisible = 150;
-      if (elementTop < windowHeight - elementVisible) {
-        el.classList.add('active');
-        
-        // If element is a skill bar, trigger progress animation
-        if(el.classList.contains('skill-bar')) {
-          const fill = el.querySelector('.progress-fill');
-          if(fill) fill.style.width = fill.getAttribute('data-width');
+    // Dark Mode
+    const themeToggle = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    const setTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        if(themeToggle) {
+            themeToggle.innerHTML = theme === 'dark' ? '<i data-lucide="sun"></i>' : '<i data-lucide="moon"></i>';
         }
-      }
-    });
-  };
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+    };
+    setTheme(currentTheme);
+    if(themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const theme = document.documentElement.getAttribute('data-theme');
+            setTheme(theme === 'light' ? 'dark' : 'light');
+        });
+    }
 
-  window.addEventListener('scroll', revealOnScroll);
-  revealOnScroll(); // Trigger on load
+    // Mobile Menu
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    if(hamburger && navMenu) {
+        hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+    }
+
+    // Scroll Reveal & Skill Bar Animation
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        revealElements.forEach(el => {
+            const elementTop = el.getBoundingClientRect().top;
+            if (elementTop < windowHeight - 80) {
+                el.classList.add('active');
+            }
+        });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // Trigger on load
 });

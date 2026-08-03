@@ -6,42 +6,28 @@ get_header(); ?>
         <section class="hero container">
             <div class="hero-grid">
                 <div class="hero-content reveal">
-                    <h1 class="hero-title">Building Scalable <span class="gradient-text">Backend Systems</span></h1>
-                    <p class="hero-description">Saya adalah Backend Developer yang berfokus pada arsitektur sistem yang skalabel, integrasi database berkinerja tinggi, dan infrastruktur event-driven yang tangguh.</p>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">5+</span>
-                            <span class="stat-label">Years Experience</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Projects Completed</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">30+</span>
-                            <span class="stat-label">Happy Clients</span>
-                        </div>
-                    </div>
+                    <h1 class="hero-title">Solusi Lengkap <span class="gradient-text">IT & Digital</span></h1>
+                    <p class="hero-description">Saya menyediakan layanan terpadu mulai dari pembuatan website dan aplikasi, manajemen server yang handal, hingga dukungan IT Support offline untuk mengoptimalkan kinerja bisnis Anda.</p>
                     <div class="hero-actions">
-                        <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-primary">
+                        <a href="#" class="btn btn-primary">
                             <i data-lucide="mail"></i> Hubungi Saya
                         </a>
-                        <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="btn btn-outline">
-                            <i data-lucide="file-text"></i> Lihat Artikel
+                        <a href="#layanan" class="btn btn-outline">
+                            <i data-lucide="layout-grid"></i> Lihat Layanan
                         </a>
                     </div>
                 </div>
                 <div class="hero-image reveal" style="transition-delay: 0.2s;">
                     <div class="hero-image-wrapper">
                         <div class="hero-glow"></div>
-                        <img src="https://ui-avatars.com/api/?name=Nama+Anda&size=400&background=random" alt="Foto Profil">
+                        <img src="https://ui-avatars.com/api/?name=Kusen+A&size=400&background=random" alt="Foto Profil">
                         <div class="floating-card card-1">
-                            <i data-lucide="server" style="color: var(--accent-primary);"></i>
-                            <span>API Development</span>
+                            <i data-lucide="monitor-smartphone" style="color: var(--accent-primary);"></i>
+                            <span>Web & App Dev</span>
                         </div>
                         <div class="floating-card card-2">
-                            <i data-lucide="database" style="color: var(--accent-primary);"></i>
-                            <span>Database Design</span>
+                            <i data-lucide="wrench" style="color: var(--accent-primary);"></i>
+                            <span>IT Support & Server</span>
                         </div>
                     </div>
                 </div>
@@ -56,21 +42,21 @@ get_header(); ?>
                 </div>
                 <h2 class="section-title">Tentang Saya</h2>
                 <p style="max-width: 800px; margin: 0 auto; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">
-                    Saya memiliki fokus yang kuat pada pengembangan backend, desain database terpusat, dan integrasi sistem. Berpengalaman menangani arsitektur multi-aplikasi menggunakan teknologi modern seperti PHP, Rust, dan Apache Kafka untuk memastikan data tersinkronisasi secara real-time dan aman.
+                    Saya adalah seorang profesional IT yang berdedikasi membantu individu dan bisnis dalam transformasi digital. Berpengalaman dalam merancang dan mengembangkan website atau aplikasi, mengelola server dengan performa tinggi, serta memberikan layanan perbaikan dan optimasi perangkat keras maupun perangkat lunak secara offline.
                 </p>
                 <div class="tech-stack">
-                    <span class="tech-tag">PHP</span>
-                    <span class="tech-tag">Laravel</span>
-                    <span class="tech-tag">Rust</span>
-                    <span class="tech-tag">Apache Kafka</span>
-                    <span class="tech-tag">MySQL</span>
-                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Web Development</span>
+                    <span class="tech-tag">App Development</span>
+                    <span class="tech-tag">Server Management</span>
+                    <span class="tech-tag">Linux & Windows</span>
+                    <span class="tech-tag">IT Support</span>
+                    <span class="tech-tag">Troubleshooting</span>
                 </div>
             </div>
         </section>
 
         <!-- Layanan Unggulan -->
-        <section class="services container reveal">
+        <section id="layanan" class="services container reveal">
             <div class="section-header">
                 <span class="section-badge">Services</span>
                 <h2 class="section-title">Layanan Unggulan</h2>
@@ -80,43 +66,24 @@ get_header(); ?>
             <div class="services-grid">
                 <div class="service-card reveal">
                     <div class="service-icon">
-                        <i data-lucide="server"></i>
+                        <i data-lucide="monitor-smartphone"></i>
                     </div>
-                    <h3>Backend API Development</h3>
-                    <p>Pengembangan RESTful API yang cepat dan aman menggunakan ekosistem PHP modern dan arsitektur event-driven.</p>
-                    <a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="service-link">
-                        Learn More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
-                    </a>
+                    <h3>Pembuatan Website & Aplikasi</h3>
+                    <p>Layanan pengembangan website responsif dan aplikasi modern yang disesuaikan dengan kebutuhan bisnis Anda.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.1s;">
                     <div class="service-icon">
-                        <i data-lucide="database"></i>
+                        <i data-lucide="server"></i>
                     </div>
-                    <h3>Database & Sys Integration</h3>
-                    <p>Desain skema database terpusat dan sinkronisasi data antar platform menggunakan Apache Kafka.</p>
-                    <a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="service-link">
-                        Learn More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
-                    </a>
+                    <h3>Management Server</h3>
+                    <p>Konfigurasi, pemeliharaan, dan optimasi server untuk memastikan performa yang cepat dan stabil secara terus-menerus.</p>
                 </div>
                 <div class="service-card reveal" style="transition-delay: 0.2s;">
                     <div class="service-icon">
-                        <i data-lucide="cpu"></i>
-                    </div>
-                    <h3>Systems Programming</h3>
-                    <p>Eksplorasi komputasi performa tinggi dan implementasi model AI lokal menggunakan bahasa tingkat sistem seperti Rust.</p>
-                    <a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="service-link">
-                        Learn More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
-                    </a>
-                </div>
-                <div class="service-card reveal" style="transition-delay: 0.3s;">
-                    <div class="service-icon">
                         <i data-lucide="wrench"></i>
                     </div>
-                    <h3>IT Support & Repair (Offline)</h3>
-                    <p>Layanan perbaikan software komputer/laptop. Instalasi Windows & Linux, optimasi sistem, dan instalasi aplikasi.</p>
-                    <a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="service-link">
-                        Learn More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
-                    </a>
+                    <h3>IT Support (Offline)</h3>
+                    <p>Layanan dukungan teknis, instalasi software, optimasi sistem, serta penyelesaian masalah perangkat lunak dan keras.</p>
                 </div>
             </div>
         </section>
