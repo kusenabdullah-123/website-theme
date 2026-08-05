@@ -15,7 +15,7 @@
     <!-- Header -->
     <header class="navbar">
         <div class="container nav-container">
-            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo">DevPortfolio.</a>
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo">Kusena.Dev</a>
             
             <nav class="nav-menu" id="nav-menu">
                 <?php
@@ -35,7 +35,7 @@
                     <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact</a>
                 <?php } ?>
                 
-                <button id="theme-toggle" class="btn btn-outline" style="padding: 8px;" aria-label="Toggle Theme">
+                <button id="theme-toggle" class="btn btn-outline p-8" aria-label="Toggle Theme">
                     <i data-lucide="moon" class="theme-icon"></i>
                 </button>
             </nav>

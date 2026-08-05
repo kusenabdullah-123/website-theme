@@ -17,16 +17,16 @@ get_header(); ?>
                         </a>
                     </div>
                 </div>
-                <div class="hero-image reveal" style="transition-delay: 0.2s;">
+                <div class="hero-image reveal delay-200">
                     <div class="hero-image-wrapper">
                         <div class="hero-glow"></div>
                         <img src="https://ui-avatars.com/api/?name=Kusen+A&size=400&background=random" alt="Foto Profil">
                         <div class="floating-card card-1">
-                            <i data-lucide="monitor-smartphone" style="color: var(--accent-primary);"></i>
+                            <i data-lucide="monitor-smartphone" class="text-accent"></i>
                             <span>Web & App Dev</span>
                         </div>
                         <div class="floating-card card-2">
-                            <i data-lucide="wrench" style="color: var(--accent-primary);"></i>
+                            <i data-lucide="wrench" class="text-accent"></i>
                             <span>IT Support & Server</span>
                         </div>
                     </div>
@@ -38,10 +38,10 @@ get_header(); ?>
         <section class="about-snippet container reveal">
             <div class="about-card">
                 <div class="about-icon">
-                    <i data-lucide="user" style="width: 32px; height: 32px; color: var(--accent-primary);"></i>
+                    <i data-lucide="user" class="icon-lg text-accent"></i>
                 </div>
                 <h2 class="section-title">Tentang Saya</h2>
-                <p style="max-width: 800px; margin: 0 auto; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">
+                <p class="max-w-800 mx-auto text-secondary font-md">
                     Saya adalah seorang profesional IT yang berdedikasi membantu individu dan bisnis dalam transformasi digital. Berpengalaman dalam merancang dan mengembangkan website atau aplikasi, mengelola server dengan performa tinggi, serta memberikan layanan perbaikan dan optimasi perangkat keras maupun perangkat lunak secara offline.
                 </p>
                 <div class="tech-stack">
@@ -71,14 +71,14 @@ get_header(); ?>
                     <h3>Pembuatan Website & Aplikasi</h3>
                     <p>Layanan pengembangan website responsif dan aplikasi modern yang disesuaikan dengan kebutuhan bisnis Anda.</p>
                 </div>
-                <div class="service-card reveal" style="transition-delay: 0.1s;">
+                <div class="service-card reveal delay-100">
                     <div class="service-icon">
                         <i data-lucide="server"></i>
                     </div>
                     <h3>Management Server</h3>
                     <p>Konfigurasi, pemeliharaan, dan optimasi server untuk memastikan performa yang cepat dan stabil secara terus-menerus.</p>
                 </div>
-                <div class="service-card reveal" style="transition-delay: 0.2s;">
+                <div class="service-card reveal delay-200">
                     <div class="service-icon">
                         <i data-lucide="wrench"></i>
                     </div>
@@ -108,9 +108,9 @@ get_header(); ?>
                     while ( $latest_posts->have_posts() ) : $latest_posts->the_post();
                         $categories = get_the_category();
                         $category_name = !empty($categories) ? esc_html($categories[0]->name) : 'Uncategorized';
-                        $style = $delay > 0 ? ' style="transition-delay: 0.' . $delay . 's;"' : '';
+                        $class_delay = $delay > 0 ? ' delay-' . ($delay * 100) : '';
                 ?>
-                <a href="<?php the_permalink(); ?>" class="article-card reveal"<?php echo $style; ?>>
+                <a href="<?php the_permalink(); ?>" class="article-card reveal<?php echo $class_delay; ?>">
                     <div class="article-image">
                         <?php if ( has_post_thumbnail() ) : ?>
                             <?php the_post_thumbnail('medium_large', array('loading' => 'lazy')); ?>
@@ -123,7 +123,7 @@ get_header(); ?>
                         <h3><?php the_title(); ?></h3>
                         <p><?php echo wp_trim_words( get_the_excerpt(), 12, '...' ); ?></p>
                         <div class="article-meta">
-                            <span style="display: flex; align-items: center; gap: 5px;"><i data-lucide="calendar" style="width: 14px; height: 14px;"></i> <?php echo get_the_date(); ?></span>
+                            <span class="flex-align-center"><i data-lucide="calendar" class="icon-sm"></i> <?php echo get_the_date(); ?></span>
                         </div>
                     </div>
                 </a>
@@ -133,11 +133,11 @@ get_header(); ?>
                     wp_reset_postdata();
                 else :
                 ?>
-                    <p style="grid-column: 1 / -1; text-align: center;">Belum ada artikel.</p>
+                    <p class="grid-col-full text-center">Belum ada artikel.</p>
                 <?php endif; ?>
             </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="btn btn-outline">View All Articles <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
+            <div class="text-center mt-40">
+                <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="btn btn-outline">View All Articles <i data-lucide="arrow-right" class="icon-md"></i></a>
             </div>
         </section>
     </main>

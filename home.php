@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 <main class="main-page-padding">
     <section class="container reveal active">
-        <h1 class="section-title" style="text-align: left; margin-bottom: 20px;">Catatan & Eksplorasi</h1>
-        <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 40px; max-width: 800px; line-height: 1.8;">
+        <h1 class="section-title text-left mb-20">Catatan & Eksplorasi</h1>
+        <p class="font-md text-secondary mb-40 max-w-800">
             Dokumentasi seputar teknologi, penyelesaian masalah bug, dan proses belajar saya dalam dunia software engineering.
         </p>
 
@@ -50,7 +50,7 @@
                                         }
                                     ?>
                                 </span>
-                                <span style="display: flex; align-items: center; gap: 5px;"><i data-lucide="calendar" width="14"></i> <?php echo get_the_date(); ?></span>
+                                <span class="flex-align-center"><i data-lucide="calendar" width="14"></i> <?php echo get_the_date(); ?></span>
                             </div>
                             <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                             <p><?php echo wp_trim_words( get_the_excerpt(), 20, '...' ); ?></p>
@@ -63,7 +63,7 @@
             <?php endif; ?>
         </div>
         
-        <div style="margin-top: 50px;">
+        <div class="mt-50">
             <?php 
                 the_posts_pagination( array(
                     'mid_size'  => 2,

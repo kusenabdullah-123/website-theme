@@ -2,27 +2,27 @@
     <footer class="footer">
         <div class="container footer-grid">
             <div>
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo" style="font-size: 1.5rem; font-weight: 700; text-decoration: none; color: var(--text-primary); display: block; margin-bottom: 16px;">DevPortfolio.</a>
-                <p style="color: var(--text-secondary); margin-bottom: 24px;">Memberikan solusi IT yang komprehensif, mulai dari pengembangan website hingga dukungan teknis operasional.</p>
-                <div style="display: flex; gap: 16px;">
-                    <a href="#" aria-label="GitHub" style="color: var(--text-secondary);"><i data-lucide="github"></i></a>
-                    <a href="#" aria-label="LinkedIn" style="color: var(--text-secondary);"><i data-lucide="linkedin"></i></a>
-                    <a href="#" aria-label="YouTube" style="color: var(--text-secondary);"><i data-lucide="youtube"></i></a>
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo font-lg font-bold no-underline text-primary d-block mb-16">Kusena.Dev</a>
+                <p class="text-secondary mb-24">Memberikan solusi IT yang komprehensif, mulai dari pengembangan website hingga dukungan teknis operasional.</p>
+                <div class="flex-align-center footer-social">
+                    <a href="#" aria-label="GitHub" class="text-secondary"><i data-lucide="github"></i></a>
+                    <a href="#" aria-label="LinkedIn" class="text-secondary"><i data-lucide="linkedin"></i></a>
+                    <a href="#" aria-label="YouTube" class="text-secondary"><i data-lucide="youtube"></i></a>
                 </div>
             </div>
             <div>
-                <h3 style="margin-bottom: 20px;">Quick Links</h3>
-                <ul style="list-style: none;">
-                    <li style="margin-bottom: 12px;"><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" style="color: var(--text-secondary); text-decoration: none;">About Me</a></li>
-                    <li style="margin-bottom: 12px;"><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" style="color: var(--text-secondary); text-decoration: none;">Blog</a></li>
+                <h3 class="mb-20">Quick Links</h3>
+                <ul class="list-none">
+                    <li class="mb-12"><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="text-secondary no-underline">About Me</a></li>
+                    <li class="mb-12"><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="text-secondary no-underline">Blog</a></li>
                 </ul>
             </div>
             <div>
-                <h3 style="margin-bottom: 20px;">Layanan</h3>
-                <ul style="list-style: none;">
-                    <li style="margin-bottom: 12px;"><span style="color: var(--text-secondary);">Pembuatan Website & Aplikasi</span></li>
-                    <li style="margin-bottom: 12px;"><span style="color: var(--text-secondary);">Management Server</span></li>
-                    <li style="margin-bottom: 12px;"><span style="color: var(--text-secondary);">IT Support Offline</span></li>
+                <h3 class="mb-20">Layanan</h3>
+                <ul class="list-none">
+                    <li class="mb-12"><span class="text-secondary">Pembuatan Website & Aplikasi</span></li>
+                    <li class="mb-12"><span class="text-secondary">Management Server</span></li>
+                    <li class="mb-12"><span class="text-secondary">IT Support Offline</span></li>
                 </ul>
             </div>
         </div>

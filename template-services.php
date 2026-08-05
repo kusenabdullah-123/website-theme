@@ -8,14 +8,14 @@ get_header(); ?>
         
         <!-- Hero Services -->
         <section class="container text-center reveal">
-            <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 20px;">Solusi Teknis untuk <span class="gradient-text">Skala Besar</span></h1>
-            <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 60px;">
+            <h1 class="hero-title font-xxl mb-20">Solusi Teknis untuk <span class="gradient-text">Skala Besar</span></h1>
+            <p class="font-md text-secondary max-w-600 mx-auto mb-60">
                 Saya menawarkan layanan pengembangan perangkat lunak spesialis dari backend API hingga sistem terdistribusi berkinerja tinggi, didukung integrasi sistem terpusat.
             </p>
         </section>
 
         <!-- Detail Layanan (Showcase Grid) -->
-        <section class="container" style="margin-bottom: 100px;">
+        <section class="container mb-100">
             <div class="services-grid-new">
                 <div class="service-grid-card reveal">
                     <div class="glowing-icon">
@@ -30,7 +30,7 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <div class="service-grid-card reveal" style="transition-delay: 0.1s;">
+                <div class="service-grid-card reveal delay-100">
                     <div class="glowing-icon">
                         <i data-lucide="braces" width="32" height="32"></i>
                     </div>
@@ -43,7 +43,7 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <div class="service-grid-card reveal" style="transition-delay: 0.2s;">
+                <div class="service-grid-card reveal delay-200">
                     <div class="glowing-icon">
                         <i data-lucide="cpu" width="32" height="32"></i>
                     </div>
@@ -56,7 +56,7 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <div class="service-grid-card reveal" style="transition-delay: 0.3s;">
+                <div class="service-grid-card reveal delay-300">
                     <div class="glowing-icon">
                         <i data-lucide="video" width="32" height="32"></i>
                     </div>
@@ -69,7 +69,7 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <div class="service-grid-card reveal" style="transition-delay: 0.4s;">
+                <div class="service-grid-card reveal delay-400">
                     <div class="glowing-icon">
                         <i data-lucide="wrench" width="32" height="32"></i>
                     </div>
@@ -85,8 +85,8 @@ get_header(); ?>
         </section>
 
         <!-- Section: Alur Kerja (Workflow) -->
-        <section class="container reveal" style="margin-bottom: 100px;">
-            <div style="text-align: center; margin-bottom: 50px;">
+        <section class="container reveal mb-100">
+            <div class="text-center mb-50">
                 <h2 class="section-title">Metodologi Kerja Saya</h2>
                 <p class="section-subtitle">Bagaimana saya membantu mewujudkan sistem impian Anda.</p>
             </div>
@@ -99,28 +99,28 @@ get_header(); ?>
                         <p>Analisis kebutuhan sistem, identifikasi masalah utama, dan penentuan tujuan bisnis.</p>
                     </div>
                 </div>
-                <div class="workflow-step reveal" style="transition-delay: 0.1s;">
+                <div class="workflow-step reveal delay-100">
                     <div class="step-number">2</div>
                     <div class="step-content">
                         <h4>Architecture</h4>
                         <p>Perancangan skema database terpusat, alur event Kafka, dan spesifikasi API.</p>
                     </div>
                 </div>
-                <div class="workflow-step reveal" style="transition-delay: 0.2s;">
+                <div class="workflow-step reveal delay-200">
                     <div class="step-number">3</div>
                     <div class="step-content">
                         <h4>Development</h4>
                         <p>Penulisan kode backend secara modular, efisien, aman, dan berstandar clean code.</p>
                     </div>
                 </div>
-                <div class="workflow-step reveal" style="transition-delay: 0.3s;">
+                <div class="workflow-step reveal delay-300">
                     <div class="step-number">4</div>
                     <div class="step-content">
                         <h4>Testing</h4>
                         <p>Pengujian performa API, validasi integrasi data real-time, dan audit keamanan bypass.</p>
                     </div>
                 </div>
-                <div class="workflow-step reveal" style="transition-delay: 0.4s;">
+                <div class="workflow-step reveal delay-400">
                     <div class="step-number">5</div>
                     <div class="step-content">
                         <h4>Deployment</h4>
@@ -131,8 +131,8 @@ get_header(); ?>
         </section>
 
         <!-- Pricing / Paket Layanan -->
-        <section class="container reveal" style="margin-bottom: 100px;">
-            <div style="text-align: center; margin-bottom: 40px;">
+        <section class="container reveal mb-100">
+            <div class="text-center mb-40">
                 <h2 class="section-title">Paket Estimasi Proyek</h2>
                 <p class="section-subtitle">Pilih model kerja sama yang paling sesuai dengan kebutuhan sistem Anda.</p>
             </div>
@@ -194,12 +194,12 @@ get_header(); ?>
 
         <!-- Call To Action -->
         <section class="container reveal">
-            <div style="background-color: var(--accent-primary); border-radius: 24px; padding: 60px 40px; text-align: center; color: white;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Siap Membangun Sistem Anda?</h2>
-                <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 32px; opacity: 0.9;">
+            <div class="cta-banner-box">
+                <h2 class="font-xl mb-20">Siap Membangun Sistem Anda?</h2>
+                <p class="font-md max-w-600 mx-auto mb-32 opacity-90">
                     Jangan biarkan aplikasi Anda terkendala oleh performa backend yang lambat. Mari berkolaborasi untuk merancang arsitektur yang siap di-scale.
                 </p>
-                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-primary" style="background-color: white; color: var(--accent-primary); padding: 16px 32px; font-size: 1.1rem;">
+                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-primary cta-btn-alt">
                     Mulai Konsultasi Gratis <i data-lucide="arrow-right"></i>
                 </a>
             </div>

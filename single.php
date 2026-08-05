@@ -15,8 +15,11 @@
                             }
                         ?>
                     </span>
-                    <span class="date"><i data-lucide="calendar" width="16" style="display:inline; margin-bottom:-2px;"></i> <?php echo get_the_date(); ?></span>
-                    <span class="read-time"><i data-lucide="clock" width="16" style="display:inline; margin-bottom:-2px;"></i> 5 min read</span>
+                    <span class="date"><i data-lucide="calendar" width="16" class="icon-inline"></i> <?php echo get_the_date(); ?></span>
+                    <span class="read-time"><i data-lucide="clock" width="16" class="icon-inline"></i> <?php 
+                        $word_count = str_word_count( strip_tags( get_the_content() ) );
+                        echo ceil($word_count / 200) . ' min read';
+                    ?></span>
                 </div>
                 
                 <h1 class="article-title"><?php the_title(); ?></h1>
@@ -41,10 +44,16 @@
                 </div>
             <?php endif; ?>
 
-            <!-- Article Body -->
+            <!-- Article Body & Tags -->
             <div class="article-body">
                 <?php the_content(); ?>
             </div>
+
+            <?php if(has_tag()): ?>
+            <div class="article-tags reveal active">
+                <?php the_tags('', ''); ?>
+            </div>
+            <?php endif; ?>
 
             <!-- Author Box -->
             <div class="author-box reveal active">
@@ -62,7 +71,7 @@
                 if (!empty($prev_post)): 
                 ?>
                     <a href="<?php echo get_permalink($prev_post->ID); ?>" class="prev">
-                        <span><i data-lucide="arrow-left" width="14" style="display:inline;"></i> Artikel Sebelumnya</span>
+                        <span class="flex-align-center" style="gap: 5px;"><i data-lucide="arrow-left" width="14"></i> Artikel Sebelumnya</span>
                         <strong><?php echo esc_html($prev_post->post_title); ?></strong>
                     </a>
                 <?php else: ?>
@@ -74,7 +83,7 @@
                 if (!empty($next_post)): 
                 ?>
                     <a href="<?php echo get_permalink($next_post->ID); ?>" class="next">
-                        <span>Artikel Selanjutnya <i data-lucide="arrow-right" width="14" style="display:inline;"></i></span>
+                        <span class="flex-align-center" style="gap: 5px; justify-content: flex-end;">Artikel Selanjutnya <i data-lucide="arrow-right" width="14"></i></span>
                         <strong><?php echo esc_html($next_post->post_title); ?></strong>
                     </a>
                 <?php else: ?>

@@ -21,7 +21,7 @@ get_header(); ?>
                         <p><strong>Telepon:</strong> +62 123 4567 8900</p>
                         <p><strong>Lokasi:</strong> Jakarta, Indonesia</p>
                         
-                        <h3 style="margin-top: $spacing-xl;">Sosial Media</h3>
+                        <h3 class="mt-40">Sosial Media</h3>
                         <p>
                             <a href="#">LinkedIn</a> | 
                             <a href="#">GitHub</a> | 

@@ -43,3 +43,8 @@ function inline_theme_css() {
     }
 }
 add_action( 'wp_head', 'inline_theme_css', 10 );
+
+// ===================================================
+// 🔹 DISABLE GUTENBERG (CLASSIC EDITOR)
+// ===================================================
+add_filter('use_block_editor_for_post', '__return_false', 10);
