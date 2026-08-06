@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <main class="main-page-padding">
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); wt_set_post_views(get_the_ID()); ?>
         
         <article class="container single-article reveal active">
             <!-- Article Header -->
@@ -20,6 +20,7 @@
                         $word_count = str_word_count( strip_tags( get_the_content() ) );
                         echo ceil($word_count / 200) . ' min read';
                     ?></span>
+                    <span class="views"><i data-lucide="eye" width="16" class="icon-inline"></i> <?php echo wt_get_post_views(get_the_ID()); ?></span>
                 </div>
                 
                 <h1 class="article-title"><?php the_title(); ?></h1>
@@ -28,7 +29,6 @@
                     <img src="https://ui-avatars.com/api/?name=<?php echo urlencode(get_the_author()); ?>&background=random" alt="<?php echo esc_attr(get_the_author()); ?>">
                     <div>
                         <strong><?php the_author(); ?></strong>
-                        <span><?php echo esc_html( get_the_author_meta( 'description' ) ); ?></span>
                     </div>
                 </div>
             </header>

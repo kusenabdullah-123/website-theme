@@ -124,6 +124,7 @@ get_header(); ?>
                         <p><?php echo wp_trim_words( get_the_excerpt(), 12, '...' ); ?></p>
                         <div class="article-meta">
                             <span class="flex-align-center"><i data-lucide="calendar" class="icon-sm"></i> <?php echo get_the_date(); ?></span>
+                            <span class="flex-align-center"><i data-lucide="eye" class="icon-sm"></i> <?php echo wt_get_post_views(get_the_ID()); ?></span>
                         </div>
                     </div>
                 </a>
