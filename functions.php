@@ -86,3 +86,19 @@ function wt_get_post_views($postID){
     
     return $count . ' Views';
 }
+
+// Add Views column to Admin Post List
+function wt_posts_column_views($columns) {
+    $columns['post_views'] = 'Views';
+    return $columns;
+}
+add_filter('manage_posts_columns', 'wt_posts_column_views');
+
+// Show the views data in the custom column
+function wt_posts_custom_column_views($column_name, $post_id) {
+    if ($column_name === 'post_views') {
+        $count = get_post_meta($post_id, '_post_views_count', true);
+        echo ($count == '') ? '0' : $count;
+    }
+}
+add_action('manage_posts_custom_column', 'wt_posts_custom_column_views', 10, 2);
