@@ -161,3 +161,12 @@
 .article-body strong, .article-body b {
     color: var(--text-primary);
 }
+.article-category, .blog-category, .category-badge {
+    white-space: nowrap;
+}
+.blog-meta, .article-meta {
+    flex-wrap: wrap;
+}
+.mt-10 {
+    margin-top: 10px;
+}

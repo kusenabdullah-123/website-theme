@@ -20,7 +20,7 @@ get_header(); ?>
                 <div class="hero-image reveal delay-200">
                     <div class="hero-image-wrapper">
                         <div class="hero-glow"></div>
-                        <img src="https://ui-avatars.com/api/?name=Kusen+A&size=400&background=random" alt="Foto Profil">
+                        <img src="https://ui-avatars.com/api/?name=Kusen+A&size=400&background=3b82f6&color=ffffff" alt="Foto Profil">
                         <div class="floating-card card-1">
                             <i data-lucide="monitor-smartphone" class="text-accent"></i>
                             <span>Web & App Dev</span>

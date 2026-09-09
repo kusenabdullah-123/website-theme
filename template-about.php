@@ -10,7 +10,7 @@ get_header(); ?>
         <section class="container reveal">
             <div class="about-profile-grid">
                 <div class="about-sticky-profile">
-                    <img src="https://ui-avatars.com/api/?name=Kusen+A&size=400&background=random" alt="Foto Profil Lengkap" class="about-profile-image">
+                    <img src="https://ui-avatars.com/api/?name=Kusen+A&size=400&background=3b82f6&color=ffffff" alt="Foto Profil Lengkap" class="about-profile-image">
                 </div>
                 
                 <div>

@@ -26,7 +26,7 @@
                 <h1 class="article-title"><?php the_title(); ?></h1>
                 
                 <div class="article-author-meta">
-                    <img src="https://ui-avatars.com/api/?name=<?php echo urlencode(get_the_author()); ?>&background=random" alt="<?php echo esc_attr(get_the_author()); ?>">
+                    <img src="https://ui-avatars.com/api/?name=<?php echo urlencode(get_the_author()); ?>&background=3b82f6&color=ffffff" alt="<?php echo esc_attr(get_the_author()); ?>">
                     <div>
                         <strong><?php the_author(); ?></strong>
                     </div>
@@ -57,7 +57,7 @@
 
             <!-- Author Box -->
             <div class="author-box reveal active">
-                <img src="https://ui-avatars.com/api/?name=<?php echo urlencode(get_the_author()); ?>&background=random" alt="Author">
+                <img src="https://ui-avatars.com/api/?name=<?php echo urlencode(get_the_author()); ?>&background=3b82f6&color=ffffff" alt="Author">
                 <div>
                     <h4><?php the_author(); ?></h4>
                     <p><?php echo esc_html( get_the_author_meta( 'description' ) ); ?></p>

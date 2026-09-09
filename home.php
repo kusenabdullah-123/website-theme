@@ -41,21 +41,21 @@
                             <?php endif; ?>
                         </div>
                         <div class="blog-content">
-                            <div class="blog-meta">
-                                <span class="blog-category">
-                                    <?php 
-                                        $categories = get_the_category();
-                                        if ( ! empty( $categories ) ) {
-                                            echo esc_html( $categories[0]->name );
-                                        }
-                                    ?>
-                                </span>
-                                <span class="flex-align-center"><i data-lucide="calendar" width="14"></i> <?php echo get_the_date(); ?></span>
-                                <span class="flex-align-center"><i data-lucide="eye" width="14"></i> <?php echo wt_get_post_views(get_the_ID()); ?></span>
+                            <div class="article-category">
+                                <?php 
+                                    $categories = get_the_category();
+                                    if ( ! empty( $categories ) ) {
+                                        echo esc_html( $categories[0]->name );
+                                    }
+                                ?>
                             </div>
                             <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                             <p><?php echo wp_trim_words( get_the_excerpt(), 20, '...' ); ?></p>
-                            <a href="<?php the_permalink(); ?>" class="read-more">Baca Selengkapnya <i data-lucide="arrow-right" width="16"></i></a>
+                            <div class="blog-meta">
+                                <span class="flex-align-center"><i data-lucide="calendar" width="14"></i> <?php echo get_the_date(); ?></span>
+                                <span class="flex-align-center"><i data-lucide="eye" width="14"></i> <?php echo wt_get_post_views(get_the_ID()); ?></span>
+                            </div>
+                            <a href="<?php the_permalink(); ?>" class="read-more mt-10">Baca Selengkapnya <i data-lucide="arrow-right" width="16"></i></a>
                         </div>
                     </article>
                 <?php endwhile; ?>
