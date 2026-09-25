@@ -9,7 +9,7 @@ get_header(); ?>
                     <h1 class="hero-title">Solusi Lengkap <span class="gradient-text">IT & Digital</span></h1>
                     <p class="hero-description">Saya menyediakan layanan terpadu mulai dari pembuatan website dan aplikasi, manajemen server yang handal, hingga dukungan IT Support offline untuk mengoptimalkan kinerja bisnis Anda.</p>
                     <div class="hero-actions">
-                        <a href="#" class="btn btn-primary">
+                        <a href="https://wa.me/6282333086744?text=halo%20saya%20mau%20konsultasi%20untuk%20..." target="_blank" class="btn btn-primary">
                             <i data-lucide="mail"></i> Hubungi Saya
                         </a>
                         <a href="#layanan" class="btn btn-outline">
