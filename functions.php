@@ -45,9 +45,22 @@ function inline_theme_css() {
 add_action( 'wp_head', 'inline_theme_css', 10 );
 
 // ===================================================
-// 🔹 DISABLE GUTENBERG (CLASSIC EDITOR)
+// 🔹 DISABLE GUTENBERG (CLASSIC EDITOR) UNTUK POST & PORTFOLIO
 // ===================================================
-add_filter('use_block_editor_for_post', '__return_false', 10);
+add_filter('use_block_editor_for_post_type', function($use_block_editor, $post_type) {
+    if ( in_array( $post_type, array( 'post', 'portfolio' ), true ) ) {
+        return false; // Gunakan Classic Editor untuk Artikel/Post & Portofolio
+    }
+    return $use_block_editor; // Gunakan Gutenberg untuk Pages dan tipe lainnya
+}, 10, 2);
+
+add_filter('use_block_editor_for_post', function($use_block_editor, $post) {
+    $post_type = is_object($post) ? $post->post_type : (string)$post;
+    if ( in_array( $post_type, array( 'post', 'portfolio' ), true ) ) {
+        return false;
+    }
+    return $use_block_editor;
+}, 10, 2);
 
 // ===================================================
 // 🔹 POST VIEW COUNTER
@@ -102,3 +115,53 @@ function wt_posts_custom_column_views($column_name, $post_id) {
     }
 }
 add_action('manage_posts_custom_column', 'wt_posts_custom_column_views', 10, 2);
+
+// ===================================================
+// 🔹 REGISTER CUSTOM POST TYPE: PORTFOLIO
+// ===================================================
+function website_theme_register_portfolio_cpt() {
+    $labels = array(
+        'name'                  => _x( 'Portofolio', 'Post type general name', 'website-theme' ),
+        'singular_name'         => _x( 'Portofolio', 'Post type singular name', 'website-theme' ),
+        'menu_name'             => _x( 'Portofolio', 'Admin Menu text', 'website-theme' ),
+        'name_admin_bar'        => _x( 'Portofolio', 'Add New on Toolbar', 'website-theme' ),
+        'add_new'               => __( 'Tambah Baru', 'website-theme' ),
+        'add_new_item'          => __( 'Tambah Portofolio Baru', 'website-theme' ),
+        'new_item'              => __( 'Portofolio Baru', 'website-theme' ),
+        'edit_item'             => __( 'Edit Portofolio', 'website-theme' ),
+        'view_item'             => __( 'Lihat Portofolio', 'website-theme' ),
+        'all_items'             => __( 'Semua Portofolio', 'website-theme' ),
+        'search_items'          => __( 'Cari Portofolio', 'website-theme' ),
+        'parent_item_colon'     => __( 'Portofolio Induk:', 'website-theme' ),
+        'not_found'             => __( 'Tidak ada portofolio ditemukan.', 'website-theme' ),
+        'not_found_in_trash'    => __( 'Tidak ada portofolio di kotak sampah.', 'website-theme' ),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'portofolio', 'with_front' => false ),
+        'capability_type'    => 'post',
+        'has_archive'        => 'portofolio',
+        'hierarchical'       => false,
+        'menu_position'      => 5,
+        'menu_icon'          => 'dashicons-portfolio',
+        'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+        'show_in_rest'       => false,
+    );
+
+    register_post_type( 'portfolio', $args );
+}
+add_action( 'init', 'website_theme_register_portfolio_cpt' );
+
+// Redirect single portfolio ke halaman daftar portofolio (belum memerlukan halaman detail)
+add_action( 'template_redirect', function() {
+    if ( is_singular( 'portfolio' ) ) {
+        wp_safe_redirect( home_url( '/portofolio/' ), 301 );
+        exit;
+    }
+} );

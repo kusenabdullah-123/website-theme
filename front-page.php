@@ -20,7 +20,7 @@ get_header(); ?>
                 <div class="hero-image reveal delay-200">
                     <div class="hero-image-wrapper">
                         <div class="hero-glow"></div>
-                        <img src="https://ui-avatars.com/api/?name=Kusen+A&size=400&background=3b82f6&color=ffffff" alt="Foto Profil">
+                        <img src="https://ui-avatars.com/api/?name=Kusen+A&size=400&background=545a92&color=ffffff" alt="Foto Profil">
                         <div class="floating-card card-1">
                             <i data-lucide="monitor-smartphone" class="text-accent"></i>
                             <span>Web & App Dev</span>
@@ -85,6 +85,56 @@ get_header(); ?>
                     <h3>IT Support (Offline)</h3>
                     <p>Layanan dukungan teknis, instalasi software, optimasi sistem, serta penyelesaian masalah perangkat lunak dan keras.</p>
                 </div>
+            </div>
+        </section>
+
+        <!-- Portofolio Terpilih -->
+        <section id="portofolio" class="portfolio-section container reveal">
+            <div class="section-header">
+                <span class="section-badge">Portofolio</span>
+                <h2 class="section-title">Portofolio Terpilih</h2>
+                <p class="section-subtitle">Beberapa hasil karya dan proyek yang telah saya selesaikan.</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <?php
+                $portfolio_posts = new WP_Query( array(
+                    'post_type'      => 'portfolio',
+                    'posts_per_page' => 3,
+                    'post_status'    => 'publish'
+                ) );
+                $p_delay = 0;
+                
+                if ( $portfolio_posts->have_posts() ) :
+                    while ( $portfolio_posts->have_posts() ) : $portfolio_posts->the_post();
+                        $class_delay = $p_delay > 0 ? ' delay-' . ($p_delay * 100) : '';
+                ?>
+                <div class="portfolio-card reveal<?php echo $class_delay; ?>">
+                    <div class="portfolio-image">
+                        <?php if ( has_post_thumbnail() ) : ?>
+                            <?php the_post_thumbnail('medium_large', array('loading' => 'lazy')); ?>
+                        <?php else : ?>
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Placeholder Portofolio" loading="lazy">
+                        <?php endif; ?>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3><?php the_title(); ?></h3>
+                        <p><?php echo wp_trim_words( get_the_excerpt(), 18, '...' ); ?></p>
+                    </div>
+                </div>
+                <?php
+                        $p_delay++;
+                    endwhile;
+                    wp_reset_postdata();
+                else :
+                ?>
+                    <p class="grid-col-full text-center text-secondary">Belum ada portofolio yang ditambahkan.</p>
+                <?php endif; ?>
+            </div>
+            <div class="text-center mt-40">
+                <a href="<?php echo esc_url( home_url( '/portofolio/' ) ); ?>" class="btn btn-outline">
+                    Lihat Semua Portofolio <i data-lucide="arrow-right" class="icon-md"></i>
+                </a>
             </div>
         </section>
 
