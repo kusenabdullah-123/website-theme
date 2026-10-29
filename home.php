@@ -52,10 +52,10 @@
                             <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                             <p><?php echo wp_trim_words( get_the_excerpt(), 20, '...' ); ?></p>
                             <div class="blog-meta">
-                                <span class="flex-align-center"><i data-lucide="calendar" width="14"></i> <?php echo get_the_date(); ?></span>
-                                <span class="flex-align-center"><i data-lucide="eye" width="14"></i> <?php echo wt_get_post_views(get_the_ID()); ?></span>
+                                <span class="flex-align-center"><i class="ri-calendar-line"></i> <?php echo get_the_date(); ?></span>
+                                <span class="flex-align-center"><i class="ri-eye-line"></i> <?php echo wt_get_post_views(get_the_ID()); ?></span>
                             </div>
-                            <a href="<?php the_permalink(); ?>" class="read-more mt-10">Baca Selengkapnya <i data-lucide="arrow-right" width="16"></i></a>
+                            <a href="<?php the_permalink(); ?>" class="read-more mt-10">Baca Selengkapnya <i class="ri-arrow-right-line"></i></a>
                         </div>
                     </article>
                 <?php endwhile; ?>
@@ -68,8 +68,8 @@
             <?php 
                 the_posts_pagination( array(
                     'mid_size'  => 2,
-                    'prev_text' => '<i data-lucide="chevron-left" width="16"></i> Sebelumnya',
-                    'next_text' => 'Selanjutnya <i data-lucide="chevron-right" width="16"></i>',
+                    'prev_text' => '<i class="ri-arrow-left-s-line"></i> Sebelumnya',
+                    'next_text' => 'Selanjutnya <i class="ri-arrow-right-s-line"></i>',
                 ) );
             ?>
         </div>

@@ -19,7 +19,7 @@ get_header(); ?>
             <div class="services-grid-new">
                 <div class="service-grid-card reveal">
                     <div class="glowing-icon">
-                        <i data-lucide="server-cog" width="32" height="32"></i>
+                        <i class="ri-server-line"></i>
                     </div>
                     <h3>Arsitektur Event-Driven & Integrasi</h3>
                     <p>Membangun sistem terdistribusi yang tangguh dan cepat. Saya berpengalaman merancang sinkronisasi data real-time antar aplikasi (SSO, sistem akademik & finansial) menggunakan Apache Kafka.</p>
@@ -32,7 +32,7 @@ get_header(); ?>
 
                 <div class="service-grid-card reveal delay-100">
                     <div class="glowing-icon">
-                        <i data-lucide="braces" width="32" height="32"></i>
+                        <i class="ri-code-s-slash-line"></i>
                     </div>
                     <h3>Backend API Development (PHP)</h3>
                     <p>Pembuatan RESTful API kustom yang aman, terdokumentasi, dan mudah diskalakan menggunakan PHP 8.x modern serta Laravel framework. Termasuk proteksi keamanan ketat seperti cegah Path Traversal.</p>
@@ -45,7 +45,7 @@ get_header(); ?>
 
                 <div class="service-grid-card reveal delay-200">
                     <div class="glowing-icon">
-                        <i data-lucide="cpu" width="32" height="32"></i>
+                        <i class="ri-cpu-line"></i>
                     </div>
                     <h3>Systems Programming (Rust)</h3>
                     <p>Eksplorasi modul performa tinggi dan konkurensi aman menggunakan Rust. Sempurna untuk optimasi memori kritis, pemrosesan data masif, atau integrasi engine AI lokal di perangkat internal.</p>
@@ -58,7 +58,7 @@ get_header(); ?>
 
                 <div class="service-grid-card reveal delay-300">
                     <div class="glowing-icon">
-                        <i data-lucide="video" width="32" height="32"></i>
+                        <i class="ri-movie-2-line"></i>
                     </div>
                     <h3>Video Editing (CapCut)</h3>
                     <p>Layanan multimedia pendukung seperti pengeditan video YouTube Shorts / reguler secara dinamis dengan CapCut. Membantu pembuatan visual cyber-futuristic/gaming, dan copywriting SEO YouTube.</p>
@@ -71,7 +71,7 @@ get_header(); ?>
 
                 <div class="service-grid-card reveal delay-400">
                     <div class="glowing-icon">
-                        <i data-lucide="wrench" width="32" height="32"></i>
+                        <i class="ri-tools-line"></i>
                     </div>
                     <h3>IT Support & Repair (Offline)</h3>
                     <p>Selain fokus pada development, saya juga melayani perbaikan software komputer dan laptop secara offline. Instalasi OS (Windows/Linux), optimasi performa sistem, serta instalasi berbagai aplikasi esensial.</p>
@@ -143,10 +143,10 @@ get_header(); ?>
                     <div class="plan-name">Backend API Basic</div>
                     <div class="price">Mulai $300<span>/proyek</span></div>
                     <ul class="features-list">
-                        <li><i data-lucide="check-circle-2" class="icon-check"></i> Desain Skema Database (MySQL/PgSQL)</li>
-                        <li><i data-lucide="check-circle-2" class="icon-check"></i> Pengembangan RESTful API CRUD</li>
-                        <li><i data-lucide="check-circle-2" class="icon-check"></i> Autentikasi dasar (JWT/Sanctum)</li>
-                        <li><i data-lucide="check-circle-2" class="icon-check"></i> Dokumentasi Postman / Swagger</li>
+                        <li><i class="ri-checkbox-circle-fill icon-check"></i> Desain Skema Database (MySQL/PgSQL)</li>
+                        <li><i class="ri-checkbox-circle-fill icon-check"></i> Pengembangan RESTful API CRUD</li>
+                        <li><i class="ri-checkbox-circle-fill icon-check"></i> Autentikasi dasar (JWT/Sanctum)</li>
+                        <li><i class="ri-checkbox-circle-fill icon-check"></i> Dokumentasi Postman / Swagger</li>
                     </ul>
                     <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-outline">Pilih Paket</a>
                 </div>
@@ -156,10 +156,10 @@ get_header(); ?>
                     <div class="plan-name">Integrasi Event-Driven</div>
                     <div class="price">Mulai $800<span>/proyek</span></div>
                     <ul class="features-list">
-                        <li><i data-lucide="check-circle-2" class="icon-check"></i> Setup Server & Cluster Apache Kafka</li>
-                        <li><i data-lucide="check-circle-2" class="icon-check"></i> Script PHP Producer & Consumer (rdkafka)</li>
-                        <li><i data-lucide="check-circle-2" class="icon-check"></i> Arsitektur Sinkronisasi Multi-Aplikasi</li>
-                        <li><i data-lucide="check-circle-2" class="icon-check"></i> Konfigurasi Keamanan (ACLs) & Testing</li>
+                        <li><i class="ri-checkbox-circle-fill icon-check"></i> Setup Server & Cluster Apache Kafka</li>
+                        <li><i class="ri-checkbox-circle-fill icon-check"></i> Script PHP Producer & Consumer (rdkafka)</li>
+                        <li><i class="ri-checkbox-circle-fill icon-check"></i> Arsitektur Sinkronisasi Multi-Aplikasi</li>
+                        <li><i class="ri-checkbox-circle-fill icon-check"></i> Konfigurasi Keamanan (ACLs) & Testing</li>
                     </ul>
                     <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-primary">Diskusikan Proyek</a>
                 </div>
@@ -169,10 +169,10 @@ get_header(); ?>
                     <div class="plan-name">Custom Retainer</div>
                     <div class="price">$35<span>/jam</span></div>
                     <ul class="features-list">
-                        <li><i data-lucide="check-circle-2" class="icon-check"></i> Refactoring kode PHP legacy</li>
-                        <li><i data-lucide="check-circle-2" class="icon-check"></i> Eksplorasi performa dengan Rust/C++</li>
-                        <li><i data-lucide="check-circle-2" class="icon-check"></i> Troubleshooting bug server / backend</li>
-                        <li><i data-lucide="check-circle-2" class="icon-check"></i> Termasuk layanan Video Editing (Opsional)</li>
+                        <li><i class="ri-checkbox-circle-fill icon-check"></i> Refactoring kode PHP legacy</li>
+                        <li><i class="ri-checkbox-circle-fill icon-check"></i> Eksplorasi performa dengan Rust/C++</li>
+                        <li><i class="ri-checkbox-circle-fill icon-check"></i> Troubleshooting bug server / backend</li>
+                        <li><i class="ri-checkbox-circle-fill icon-check"></i> Termasuk layanan Video Editing (Opsional)</li>
                     </ul>
                     <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-outline">Hubungi Saya</a>
                 </div>
@@ -182,10 +182,10 @@ get_header(); ?>
                     <div class="plan-name">IT Support (Offline)</div>
                     <div class="price">Mulai Rp 100rb<span>/servis</span></div>
                     <ul class="features-list">
-                        <li><i data-lucide="check-circle-2" class="icon-check"></i> Instalasi OS (Windows / Linux)</li>
-                        <li><i data-lucide="check-circle-2" class="icon-check"></i> Optimasi performa Windows lambat</li>
-                        <li><i data-lucide="check-circle-2" class="icon-check"></i> Instalasi aplikasi (Office, Adobe, dll)</li>
-                        <li><i data-lucide="check-circle-2" class="icon-check"></i> Pembersihan virus & malware</li>
+                        <li><i class="ri-checkbox-circle-fill icon-check"></i> Instalasi OS (Windows / Linux)</li>
+                        <li><i class="ri-checkbox-circle-fill icon-check"></i> Optimasi performa Windows lambat</li>
+                        <li><i class="ri-checkbox-circle-fill icon-check"></i> Instalasi aplikasi (Office, Adobe, dll)</li>
+                        <li><i class="ri-checkbox-circle-fill icon-check"></i> Pembersihan virus & malware</li>
                     </ul>
                     <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-outline">Hubungi Saya</a>
                 </div>
@@ -200,7 +200,7 @@ get_header(); ?>
                     Jangan biarkan aplikasi Anda terkendala oleh performa backend yang lambat. Mari berkolaborasi untuk merancang arsitektur yang siap di-scale.
                 </p>
                 <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-primary cta-btn-alt">
-                    Mulai Konsultasi Gratis <i data-lucide="arrow-right"></i>
+                    Mulai Konsultasi Gratis <i class="ri-arrow-right-line"></i>
                 </a>
             </div>
         </section>

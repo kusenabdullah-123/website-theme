@@ -17,12 +17,12 @@
                             }
                         ?>
                     </span>
-                    <span class="date"><i data-lucide="calendar" width="16" class="icon-inline"></i> <?php echo get_the_date(); ?></span>
-                    <span class="read-time"><i data-lucide="clock" width="16" class="icon-inline"></i> <?php 
+                    <span class="date"><i class="ri-calendar-line icon-inline"></i> <?php echo get_the_date(); ?></span>
+                    <span class="read-time"><i class="ri-time-line icon-inline"></i> <?php 
                         $word_count = str_word_count( strip_tags( get_the_content() ) );
                         echo ceil($word_count / 200) . ' min read';
                     ?></span>
-                    <span class="views"><i data-lucide="eye" width="16" class="icon-inline"></i> <?php echo wt_get_post_views(get_the_ID()); ?></span>
+                    <span class="views"><i class="ri-eye-line icon-inline"></i> <?php echo wt_get_post_views(get_the_ID()); ?></span>
                 </div>
                 
                 <h1 class="article-title"><?php the_title(); ?></h1>
@@ -63,6 +63,9 @@
                 <div>
                     <h4><?php the_author(); ?></h4>
                     <p><?php echo esc_html( get_the_author_meta( 'description' ) ); ?></p>
+                    <div class="author-social mt-12">
+                        <?php wt_render_social_links( 'icons' ); ?>
+                    </div>
                 </div>
             </div>
 
@@ -73,7 +76,7 @@
                 if (!empty($prev_post)): 
                 ?>
                     <a href="<?php echo get_permalink($prev_post->ID); ?>" class="prev">
-                        <span class="flex-align-center" style="gap: 5px;"><i data-lucide="arrow-left" width="14"></i> Artikel Sebelumnya</span>
+                        <span class="flex-align-center" style="gap: 5px;"><i class="ri-arrow-left-line"></i> Artikel Sebelumnya</span>
                         <strong><?php echo esc_html($prev_post->post_title); ?></strong>
                     </a>
                 <?php else: ?>
@@ -85,7 +88,7 @@
                 if (!empty($next_post)): 
                 ?>
                     <a href="<?php echo get_permalink($next_post->ID); ?>" class="next">
-                        <span class="flex-align-center" style="gap: 5px; justify-content: flex-end;">Artikel Selanjutnya <i data-lucide="arrow-right" width="14"></i></span>
+                        <span class="flex-align-center" style="gap: 5px; justify-content: flex-end;">Artikel Selanjutnya <i class="ri-arrow-right-line"></i></span>
                         <strong><?php echo esc_html($next_post->post_title); ?></strong>
                     </a>
                 <?php else: ?>

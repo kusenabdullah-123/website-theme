@@ -4,10 +4,8 @@
             <div>
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo font-lg font-bold no-underline text-primary d-block mb-16">Kusena.Dev</a>
                 <p class="text-secondary mb-24">Memberikan solusi IT yang komprehensif, mulai dari pengembangan website hingga dukungan teknis operasional.</p>
-                <div class="flex-align-center footer-social">
-                    <a href="#" aria-label="GitHub" class="text-secondary"><i data-lucide="github"></i></a>
-                    <a href="#" aria-label="LinkedIn" class="text-secondary"><i data-lucide="linkedin"></i></a>
-                    <a href="#" aria-label="YouTube" class="text-secondary"><i data-lucide="youtube"></i></a>
+                <div class="footer-social">
+                    <?php wt_render_social_links( 'icons' ); ?>
                 </div>
             </div>
             <div>

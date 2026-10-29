@@ -10,11 +10,14 @@ get_header(); ?>
                     <p class="hero-description">Saya menyediakan layanan terpadu mulai dari pembuatan website dan aplikasi, manajemen server yang handal, hingga dukungan IT Support offline untuk mengoptimalkan kinerja bisnis Anda.</p>
                     <div class="hero-actions">
                         <a href="https://wa.me/6282333086744?text=halo%20saya%20mau%20konsultasi%20untuk%20..." target="_blank" class="btn btn-primary">
-                            <i data-lucide="mail"></i> Hubungi Saya
+                            <i class="ri-mail-line"></i> Hubungi Saya
                         </a>
                         <a href="#layanan" class="btn btn-outline">
-                            <i data-lucide="layout-grid"></i> Lihat Layanan
+                            <i class="ri-layout-grid-line"></i> Lihat Layanan
                         </a>
+                    </div>
+                    <div class="hero-social">
+                        <?php wt_render_social_links( 'icons' ); ?>
                     </div>
                 </div>
                 <div class="hero-image reveal delay-200">
@@ -22,11 +25,11 @@ get_header(); ?>
                         <div class="hero-glow"></div>
                         <img src="https://ui-avatars.com/api/?name=Kusen+A&size=400&background=545a92&color=ffffff" alt="Foto Profil">
                         <div class="floating-card card-1">
-                            <i data-lucide="monitor-smartphone" class="text-accent"></i>
+                            <i class="ri-macbook-line text-accent"></i>
                             <span>Web & App Dev</span>
                         </div>
                         <div class="floating-card card-2">
-                            <i data-lucide="wrench" class="text-accent"></i>
+                            <i class="ri-tools-line text-accent"></i>
                             <span>IT Support & Server</span>
                         </div>
                     </div>
@@ -38,7 +41,7 @@ get_header(); ?>
         <section class="about-snippet container reveal">
             <div class="about-card">
                 <div class="about-icon">
-                    <i data-lucide="user" class="icon-lg text-accent"></i>
+                    <i class="ri-user-3-line icon-lg text-accent"></i>
                 </div>
                 <h2 class="section-title">Tentang Saya</h2>
                 <p class="max-w-800 mx-auto text-secondary font-md">
@@ -66,21 +69,21 @@ get_header(); ?>
             <div class="services-grid">
                 <div class="service-card reveal">
                     <div class="service-icon">
-                        <i data-lucide="monitor-smartphone"></i>
+                        <i class="ri-macbook-line"></i>
                     </div>
                     <h3>Pembuatan Website & Aplikasi</h3>
                     <p>Layanan pengembangan website responsif dan aplikasi modern yang disesuaikan dengan kebutuhan bisnis Anda.</p>
                 </div>
                 <div class="service-card reveal delay-100">
                     <div class="service-icon">
-                        <i data-lucide="server"></i>
+                        <i class="ri-server-line"></i>
                     </div>
                     <h3>Management Server</h3>
                     <p>Konfigurasi, pemeliharaan, dan optimasi server untuk memastikan performa yang cepat dan stabil secara terus-menerus.</p>
                 </div>
                 <div class="service-card reveal delay-200">
                     <div class="service-icon">
-                        <i data-lucide="wrench"></i>
+                        <i class="ri-tools-line"></i>
                     </div>
                     <h3>IT Support (Offline)</h3>
                     <p>Layanan dukungan teknis, instalasi software, optimasi sistem, serta penyelesaian masalah perangkat lunak dan keras.</p>
@@ -133,7 +136,7 @@ get_header(); ?>
             </div>
             <div class="text-center mt-40">
                 <a href="<?php echo esc_url( home_url( '/portofolio/' ) ); ?>" class="btn btn-outline">
-                    Lihat Semua Portofolio <i data-lucide="arrow-right" class="icon-md"></i>
+                    Lihat Semua Portofolio <i class="ri-arrow-right-line icon-md"></i>
                 </a>
             </div>
         </section>
@@ -173,8 +176,8 @@ get_header(); ?>
                         <h3><?php the_title(); ?></h3>
                         <p><?php echo wp_trim_words( get_the_excerpt(), 12, '...' ); ?></p>
                         <div class="article-meta">
-                            <span class="flex-align-center"><i data-lucide="calendar" class="icon-sm"></i> <?php echo get_the_date(); ?></span>
-                            <span class="flex-align-center"><i data-lucide="eye" class="icon-sm"></i> <?php echo wt_get_post_views(get_the_ID()); ?></span>
+                            <span class="flex-align-center"><i class="ri-calendar-line icon-sm"></i> <?php echo get_the_date(); ?></span>
+                            <span class="flex-align-center"><i class="ri-eye-line icon-sm"></i> <?php echo wt_get_post_views(get_the_ID()); ?></span>
                         </div>
                     </div>
                 </a>
@@ -188,7 +191,7 @@ get_header(); ?>
                 <?php endif; ?>
             </div>
             <div class="text-center mt-40">
-                <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="btn btn-outline">View All Articles <i data-lucide="arrow-right" class="icon-md"></i></a>
+                <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="btn btn-outline">View All Articles <i class="ri-arrow-right-line icon-md"></i></a>
             </div>
         </section>
     </main>

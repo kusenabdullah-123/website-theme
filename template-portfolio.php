@@ -56,8 +56,8 @@ get_header(); ?>
                 echo paginate_links( array(
                     'total'        => $portfolio_query->max_num_pages,
                     'current'      => $paged,
-                    'prev_text'    => '<i data-lucide="chevron-left" class="icon-sm"></i> Sebelumnya',
-                    'next_text'    => 'Selanjutnya <i data-lucide="chevron-right" class="icon-sm"></i>',
+                    'prev_text'    => '<i class="ri-arrow-left-s-line icon-sm"></i> Sebelumnya',
+                    'next_text'    => 'Selanjutnya <i class="ri-arrow-right-s-line icon-sm"></i>',
                 ) );
                 wp_reset_postdata();
             ?>

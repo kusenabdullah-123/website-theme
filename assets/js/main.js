@@ -1,9 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Ensure Lucide loads correctly
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-
     // Dark Mode
     const themeToggle = document.getElementById('theme-toggle');
     const currentTheme = localStorage.getItem('theme') || 'dark';
@@ -11,9 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
         if(themeToggle) {
-            themeToggle.innerHTML = theme === 'dark' ? '<i data-lucide="sun"></i>' : '<i data-lucide="moon"></i>';
+            themeToggle.innerHTML = theme === 'dark' ? '<i class="ri-sun-line"></i>' : '<i class="ri-moon-line"></i>';
         }
-        if (typeof lucide !== 'undefined') lucide.createIcons();
     };
     setTheme(currentTheme);
     if(themeToggle) {

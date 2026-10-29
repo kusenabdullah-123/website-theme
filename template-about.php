@@ -11,6 +11,9 @@ get_header(); ?>
             <div class="about-profile-grid">
                 <div class="about-sticky-profile">
                     <img src="https://ui-avatars.com/api/?name=Kusen+A&size=400&background=545a92&color=ffffff" alt="Foto Profil Lengkap" class="about-profile-image">
+                    <div class="about-profile-social mt-20">
+                        <?php wt_render_social_links( 'icons' ); ?>
+                    </div>
                 </div>
                 
                 <div>

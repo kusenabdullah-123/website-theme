@@ -22,7 +22,7 @@ add_action( 'after_setup_theme', 'website_theme_setup' );
 
 function website_theme_scripts() {
 	wp_enqueue_style( 'google-fonts-inter', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap', array(), null );
-	wp_enqueue_script( 'lucide-icons', 'https://unpkg.com/lucide@latest', array(), null, true );
+	wp_enqueue_style( 'remixicon', 'https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css', array(), '4.5.0' );
 	wp_enqueue_script( 'website-theme-main', get_template_directory_uri() . '/assets/js/main.js', array(), null, true );
 }
 add_action( 'wp_enqueue_scripts', 'website_theme_scripts' );
@@ -165,3 +165,80 @@ add_action( 'template_redirect', function() {
         exit;
     }
 } );
+
+// ===================================================
+// 🔹 SOCIAL MEDIA HELPER (CENTRALIZED)
+// ===================================================
+function wt_get_social_links() {
+    return array(
+        'github' => array(
+            'label'  => 'GitHub',
+            'url'    => 'https://github.com/kusenabdullah-123',
+            'icon'   => 'ri-github-fill',
+            'handle' => '@kusenabdullah-123',
+        ),
+        'youtube' => array(
+            'label'  => 'YouTube',
+            'url'    => 'https://www.youtube.com/@kusenadev1867',
+            'icon'   => 'ri-youtube-fill',
+            'handle' => 'Kusen Abdullah',
+        ),
+        'facebook' => array(
+            'label'  => 'Facebook',
+            'url'    => 'https://web.facebook.com/kusenadev',
+            'icon'   => 'ri-facebook-fill',
+            'handle' => '@kusenadev',
+        ),
+        'instagram' => array(
+            'label'  => 'Instagram',
+            'url'    => 'https://www.instagram.com/kusenadev01/',
+            'icon'   => 'ri-instagram-line',
+            'handle' => '@kusenadev01',
+        ),
+        'email' => array(
+            'label'  => 'Email',
+            'url'    => 'mailto:kusena322@gmail.com',
+            'icon'   => 'ri-mail-line',
+            'handle' => 'kusena322@gmail.com',
+        ),
+    );
+}
+
+function wt_render_social_links( $style = 'icons', $class = '' ) {
+    $links = wt_get_social_links();
+    if ( empty( $links ) ) {
+        return;
+    }
+
+    if ( $style === 'cards' ) {
+        echo '<div class="social-cards-grid ' . esc_attr( $class ) . '">';
+        foreach ( $links as $key => $item ) {
+            if ( empty( $item['url'] ) || $item['url'] === '#' ) continue;
+            ?>
+            <a href="<?php echo esc_url( $item['url'] ); ?>" target="_blank" rel="noopener noreferrer" class="social-card-item">
+                <div class="social-card-icon">
+                    <i class="<?php echo esc_attr( $item['icon'] ); ?>"></i>
+                </div>
+                <div class="social-card-info">
+                    <span class="social-card-label"><?php echo esc_html( $item['label'] ); ?></span>
+                    <span class="social-card-handle"><?php echo esc_html( $item['handle'] ); ?></span>
+                </div>
+                <i class="ri-external-link-line social-card-arrow"></i>
+            </a>
+            <?php
+        }
+        echo '</div>';
+    } else {
+        echo '<div class="social-links-wrapper ' . esc_attr( $class ) . '">';
+        foreach ( $links as $key => $item ) {
+            if ( empty( $item['url'] ) || $item['url'] === '#' ) continue;
+            ?>
+            <a href="<?php echo esc_url( $item['url'] ); ?>" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="<?php echo esc_attr( $item['label'] ); ?>" title="<?php echo esc_attr( $item['label'] ); ?>">
+                <i class="<?php echo esc_attr( $item['icon'] ); ?>"></i>
+            </a>
+            <?php
+        }
+        echo '</div>';
+    }
+}
+

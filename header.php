@@ -36,12 +36,12 @@
                 <?php } ?>
                 
                 <button id="theme-toggle" class="btn btn-outline p-8" aria-label="Toggle Theme">
-                    <i data-lucide="moon" class="theme-icon"></i>
+                    <i class="ri-moon-line theme-icon"></i>
                 </button>
             </nav>
             
             <button class="hamburger" id="hamburger" aria-label="Menu">
-                <i data-lucide="menu"></i>
+                <i class="ri-menu-line"></i>
             </button>
         </div>
     </header>
