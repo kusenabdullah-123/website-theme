@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+get_header(); ?>
 
 <main class="main-page-padding">
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); wt_set_post_views(get_the_ID()); ?>
@@ -17,18 +21,18 @@
                             }
                         ?>
                     </span>
-                    <span class="date"><i class="ri-calendar-line icon-inline"></i> <?php echo get_the_date(); ?></span>
+                    <span class="date"><i class="ri-calendar-line icon-inline"></i> <?php echo esc_html( get_the_date() ); ?></span>
                     <span class="read-time"><i class="ri-time-line icon-inline"></i> <?php 
-                        $word_count = str_word_count( strip_tags( get_the_content() ) );
-                        echo ceil($word_count / 200) . ' min read';
+                        $word_count = str_word_count( wp_strip_all_tags( get_the_content() ) );
+                        echo esc_html( ceil( $word_count / 200 ) . ' min read' );
                     ?></span>
-                    <span class="views"><i class="ri-eye-line icon-inline"></i> <?php echo wt_get_post_views(get_the_ID()); ?></span>
+                    <span class="views"><i class="ri-eye-line icon-inline"></i> <?php echo esc_html( wt_get_post_views( get_the_ID() ) ); ?></span>
                 </div>
                 
                 <h1 class="article-title"><?php the_title(); ?></h1>
                 
                 <div class="article-author-meta">
-                    <img src="https://ui-avatars.com/api/?name=<?php echo urlencode(get_the_author()); ?>&background=545a92&color=ffffff" alt="<?php echo esc_attr(get_the_author()); ?>">
+                    <img src="<?php echo esc_url( 'https://ui-avatars.com/api/?name=' . rawurlencode( get_the_author() ) . '&background=545a92&color=ffffff' ); ?>" alt="<?php echo esc_attr( get_the_author() ); ?>">
                     <div>
                         <strong><?php the_author(); ?></strong>
                     </div>
@@ -59,7 +63,7 @@
 
             <!-- Author Box -->
             <div class="author-box reveal active">
-                <img src="https://ui-avatars.com/api/?name=<?php echo urlencode(get_the_author()); ?>&background=545a92&color=ffffff" alt="Author">
+                <img src="<?php echo esc_url( 'https://ui-avatars.com/api/?name=' . rawurlencode( get_the_author() ) . '&background=545a92&color=ffffff' ); ?>" alt="<?php echo esc_attr( get_the_author() ); ?>">
                 <div>
                     <h4><?php the_author(); ?></h4>
                     <p><?php echo esc_html( get_the_author_meta( 'description' ) ); ?></p>
@@ -75,7 +79,7 @@
                 $prev_post = get_previous_post();
                 if (!empty($prev_post)): 
                 ?>
-                    <a href="<?php echo get_permalink($prev_post->ID); ?>" class="prev">
+                    <a href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>" class="prev">
                         <span class="flex-align-center" style="gap: 5px;"><i class="ri-arrow-left-line"></i> Artikel Sebelumnya</span>
                         <strong><?php echo esc_html($prev_post->post_title); ?></strong>
                     </a>
@@ -87,7 +91,7 @@
                 $next_post = get_next_post();
                 if (!empty($next_post)): 
                 ?>
-                    <a href="<?php echo get_permalink($next_post->ID); ?>" class="next">
+                    <a href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>" class="next">
                         <span class="flex-align-center" style="gap: 5px; justify-content: flex-end;">Artikel Selanjutnya <i class="ri-arrow-right-line"></i></span>
                         <strong><?php echo esc_html($next_post->post_title); ?></strong>
                     </a>

@@ -3,6 +3,10 @@
  * Website Theme functions and definitions
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! function_exists( 'website_theme_setup' ) ) :
 	function website_theme_setup() {
 		add_theme_support( 'automatic-feed-links' );
@@ -67,37 +71,37 @@ add_filter('use_block_editor_for_post', function($use_block_editor, $post) {
 // ===================================================
 
 function wt_set_post_views($postID) {
-    if ( ! current_user_can('administrator') ) { // Exclude admin visits
-        $count_key = '_post_views_count';
-        $count = get_post_meta($postID, $count_key, true);
-        if($count == ''){
-            $count = 1;
-            delete_post_meta($postID, $count_key);
-            add_post_meta($postID, $count_key, '1');
-        } else {
-            $count++;
-            update_post_meta($postID, $count_key, $count);
-        }
+    $postID = absint( $postID );
+    if ( ! $postID || current_user_can( 'administrator' ) || is_robots() || is_preview() || wp_doing_ajax() || wp_doing_cron() ) {
+        return;
     }
+
+    // Ignore prefetch requests to prevent artificial inflation & unnecessary DB writes
+    if ( isset( $_SERVER['HTTP_X_MOZ'] ) && 'prefetch' === strtolower( $_SERVER['HTTP_X_MOZ'] ) ) {
+        return;
+    }
+
+    $count_key = '_post_views_count';
+    $count     = get_post_meta( $postID, $count_key, true );
+    $new_count = ( '' === $count ) ? 1 : ( absint( $count ) + 1 );
+    update_post_meta( $postID, $count_key, $new_count );
 }
 
 function wt_get_post_views($postID){
+    $postID    = absint( $postID );
     $count_key = '_post_views_count';
-    $count = get_post_meta($postID, $count_key, true);
-    if($count == ''){
-        delete_post_meta($postID, $count_key);
-        add_post_meta($postID, $count_key, '0');
-        return "0 Views";
-    }
+    $count     = absint( get_post_meta( $postID, $count_key, true ) );
     
     // Formatting numbers (e.g. 1.2K)
-    if ($count >= 1000 && $count < 1000000) {
-        $count = round($count / 1000, 1) . 'K';
-    } elseif ($count >= 1000000) {
-        $count = round($count / 1000000, 1) . 'M';
+    if ( $count >= 1000 && $count < 1000000 ) {
+        $formatted = round( $count / 1000, 1 ) . 'K';
+    } elseif ( $count >= 1000000 ) {
+        $formatted = round( $count / 1000000, 1 ) . 'M';
+    } else {
+        $formatted = (string) $count;
     }
     
-    return $count . ' Views';
+    return esc_html( $formatted . ' Views' );
 }
 
 // Add Views column to Admin Post List
@@ -111,7 +115,7 @@ add_filter('manage_posts_columns', 'wt_posts_column_views');
 function wt_posts_custom_column_views($column_name, $post_id) {
     if ($column_name === 'post_views') {
         $count = get_post_meta($post_id, '_post_views_count', true);
-        echo ($count == '') ? '0' : $count;
+        echo esc_html( ( '' === $count ) ? '0' : absint( $count ) );
     }
 }
 add_action('manage_posts_custom_column', 'wt_posts_custom_column_views', 10, 2);
@@ -241,4 +245,25 @@ function wt_render_social_links( $style = 'icons', $class = '' ) {
         echo '</div>';
     }
 }
+
+// ===================================================
+// 🔹 SECURITY HARDENING
+// ===================================================
+
+// 1. Sembunyikan versi WordPress dari <head> dan RSS feeds
+remove_action( 'wp_head', 'wp_generator' );
+add_filter( 'the_generator', '__return_empty_string' );
+
+// 2. Nonaktifkan XML-RPC untuk mencegah brute-force & DDoS pingback
+add_filter( 'xmlrpc_enabled', '__return_false' );
+
+// 3. Tambahkan HTTP Security Headers dasar pada response frontend
+add_action( 'send_headers', function() {
+    if ( ! is_admin() ) {
+        header( 'X-Content-Type-Options: nosniff' );
+        header( 'X-Frame-Options: SAMEORIGIN' );
+        header( 'Referrer-Policy: strict-origin-when-cross-origin' );
+    }
+} );
+
 

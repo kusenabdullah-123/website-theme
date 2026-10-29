@@ -1,4 +1,8 @@
-    <!-- Footer -->
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+?>    <!-- Footer -->
     <footer class="footer">
         <div class="container footer-grid">
             <div>

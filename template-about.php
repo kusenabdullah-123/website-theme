@@ -2,6 +2,9 @@
 /**
  * Template Name: About Page
  */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 get_header(); ?>
 
 <main class="main-page-padding">
